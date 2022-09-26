@@ -1,6 +1,6 @@
 package com.example.dictionaryappcleanarchitecture.data.data_source.remote.dto
 
-import com.example.dictionaryappcleanarchitecture.domain.model.WordInfo
+import com.example.dictionaryappcleanarchitecture.data.data_source.local.entity.WordInfoEntity
 
 data class WordInfoDto(
     var license: LicenseDto? = LicenseDto(),
@@ -10,9 +10,9 @@ data class WordInfoDto(
     var sourceUrls: List<String>? = listOf(),
     var word: String? = ""
 ) {
-    fun toWordInfo(): WordInfo {
-        return WordInfo(
-            meanings = meanings?.map { it.toMeaning() },
+    fun toWordInfoEntity(): WordInfoEntity {
+        return WordInfoEntity(
+            meanings = meanings?.map { it.toMeaning() }!!,
             phonetic = phonetic,
             word = word
         )
